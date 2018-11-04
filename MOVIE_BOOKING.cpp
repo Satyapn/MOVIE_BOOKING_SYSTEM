@@ -676,7 +676,7 @@ int main()
 
 
 bye:
-     cout<<"its working WITH file handling \n";
+     cout<<"ITS WORKING \n";
      system("cls");
      cout<<"\n\n\n\n\t\t\t\t\t\t\t THANK YOU FOR USING OUR APPLICATION!!!!";
  return 0;
