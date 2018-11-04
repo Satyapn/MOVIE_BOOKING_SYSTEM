@@ -500,7 +500,7 @@ cout<<"\t\t\t|                                                       :::::::    
 cout<<"\t\t\t|_______________________________________________________________________|\n";
 
                                                 cout<<"\t\t\t\t\t\t\t\"PROJECT CREATED N IMPLEMENTED BY:\""<<endl;
-                                                cout<<"\t\t\t\t\t\t\t\t\t\t\t\t\t\t-LIT_GUY";
+                                                 cout<<"\t\t\t\t\t\t\t\t\t\t\t   -LIT_GUY";
 }
 
 void movie_booking::pass_proctect()//to protect the password
