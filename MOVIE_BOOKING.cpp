@@ -434,6 +434,7 @@ void movie_booking::manager()
 void movie_booking::ticket_print()
 {    int i,a=0,b=0,d=0;
     char c;
+    string time;//time to store the movie timing
 
     for(i=0;i<tkt_pr;i++)//this loop is for printing the total cost of ticket
         {
@@ -462,19 +463,25 @@ void movie_booking::ticket_print()
            cout<<"\t\t\t      +"<<d<<" * 100"<<endl;
        cout<<"GST 18% = "<<cost*0.18<<endl;
        cost=cost+cost*(0.18);
-        cout<<"\n\n\n\n\t\t\tTHE TOTAL TICKET COST = Rs "<<(double)cost<<"/-"<<endl;
+        cout<<"\n\n\n\n\t\t\tTHE TOTAL TICKET COST = Rs "<<cost<<"/-"<<endl;
         cout<<"\n\nPRESS ANY KEY TO CONTINUE\n";
         getch();
 
          system("cls");
          ifstream fin;//this part is for retrieving moive name from file
 fin.open("movie_test2.csv");
+cout<<"+++++"<<arg-1<<endl;
    for(i=0;i<arg-1;i++)
    {
     getline(fin,name[i],'\n');
    }
    getline(fin,name[i],',');
-    fin.close();
+   
+         for(int j=0;j<sti;j++)
+   {
+    getline(fin,time,',');
+   }
+   fin.close();
     (*this).hal_name();
     cout<<"\n\n\n\n\t\t\t________________________________________________________________________\n";
 cout<<"\t\t\t|                                                                       |\n";
@@ -484,7 +491,7 @@ cout<<"\t\t\t|                                                                  
 cout<<"\t\t\t|                  THE DETAILS:                                         |\n";
 cout<<"\t\t\t|                            MOVIE HALL: "<<hall_name<<"                 \n";
 cout<<"\t\t\t|                            MOVIE NAME: "<<name[i]<<"                                 \n";
-cout<<"\t\t\t|                            SHOW STARTS: 3:15pm                        |\n";
+cout<<"\t\t\t|                            SHOW STARTS:"<<time<<"                        \n";
 cout<<"\t\t\t|                            NUMBER OF TICKETS BOOKED: "<<tkt_pr<<"                |\n";
 cout<<"\t\t\t|                 THE SEAT NUMBERS ARE: ";for(i=0;i<tkt_pr;i++)
                                             {   c=tkt_row[i]+65;
@@ -588,9 +595,11 @@ int movie_booking::password_check()
 
 
             }
+
             if(foundu==0)
             {cout<<"\n\n\t\t\t\t\t\t\tUSER ID NOT FOUND\n";
-             myfile.close();}
+             myfile.close();
+            }
               else
               {
                  myfile.close();
