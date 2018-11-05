@@ -470,7 +470,7 @@ void movie_booking::ticket_print()
          system("cls");
          ifstream fin;//this part is for retrieving moive name from file
 fin.open("movie_test2.csv");
-cout<<"+++++"<<arg-1<<endl;
+
    for(i=0;i<arg-1;i++)
    {
     getline(fin,name[i],'\n');
