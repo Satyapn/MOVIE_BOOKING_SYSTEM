@@ -29,7 +29,7 @@ string name[100],tkt_pnt,pass,cus_id,cus_pas,user,hall_name;//pass is to save th
 //cus_id for storing customer id
 //cus_pas is for storing customer password
 //tkt_pnt[100] to print the movie name in ticket
-int ar[100][100][12][18],tkt_row[12],tkt_col[18],str_tim[100];//last two array r to be used to print ticket
+int ar[100][100][100][12][18],tkt_row[12],tkt_col[18],str_tim[100];//last two array r to be used to print ticket
 //str_tim is saving the no.of show of a particular movie
 /*in the array ar
 1st arg is for movie no.
@@ -126,6 +126,8 @@ void movie_booking::first()
         }
 
 //cout<<"+++++++++++"<<pas_rak<<"--------"<<data_store<<endl;to check the values
+        cout<<"\t\t\t\t\t\t\t";
+        cout<<"PRESS ANYKEY TO CONTINUE\n";
 getch();
          if(pas_rak!=0||data_store!=0)
          {  cout<<"\n\n\t\t\t\t\t\tTHE SEATS AVAILABLE ARE:\n";
@@ -144,7 +146,9 @@ fin.open("movie_test2.csv");
    }
    getline(fin,name[i],',');
     fin.close();
-             cout<<"\n\n\t\t\t\t\t\t\tCHOOSE THE NUMBER CORRENSPONDING TO TIMING TO BOOK TICKET FOR MOVIE"<<name[arg]<<endl;
+             cout<<"\n\n\t\t\t\t\t\t\tCHOOSE THE NUMBER CORRENSPONDING TO TIMING TO BOOK TICKET FOR MOVIE :-"<<endl;
+
+            cout<<"\t\t\t\t\t\t\t"<<name[i];
             cout<<"\t\t\t\t\t\t\t";
             cin>>sti;
 
@@ -267,7 +271,7 @@ fin.open("movie_test2.csv");
         cout<<"\t";
      for(j=0;j<18;j++)
         {
-            if(ar[arg][sti][i][j]==1)
+            if(ar[obn][arg][sti][i][j]==1)
             cout<<"["<<" X"<<"]";
             else
             {
@@ -309,7 +313,6 @@ sti=wt;
 else
 {
  cout<<"\n\n\t\t\t\t\t\t\tCUSTOMER BOOKING\n";
-
 }
 
         (*this).seatdisp(arg,sti);
@@ -320,9 +323,9 @@ else
         stor=chr-65;
         col=col-1;
 
-        if(ar[arg][sti][stor][col]==0)
+        if(ar[obn][arg][sti][stor][col]==0)
         {
-            ar[arg][sti][stor][col]=1;
+            ar[obn][arg][sti][stor][col]=1;
 
             tkt_col[tkt]=col;
             tkt_row[tkt]=stor;
@@ -332,7 +335,7 @@ else
         else
         {
 
-            while(ar[arg][sti][stor][col]!=0)
+            while(ar[obn][arg][sti][stor][col]!=0)
             {
                 if(arg2==100)
                 {
@@ -349,7 +352,7 @@ else
                 stor=chr-65;
                 col=col-1;
             }
-            ar[arg][sti][stor][col]=1;
+            ar[obn][arg][sti][stor][col]=1;
            tkt_col[tkt]=col;
             tkt_row[tkt]=stor;
         }
@@ -500,7 +503,7 @@ cout<<"\t\t\t|                                                       :::::::    
 cout<<"\t\t\t|_______________________________________________________________________|\n";
 
                                                 cout<<"\t\t\t\t\t\t\t\"PROJECT CREATED N IMPLEMENTED BY:\""<<endl;
-                                                 cout<<"\t\t\t\t\t\t\t\t\t\t\t   -LIT_GUY";
+                                                cout<<"\t\t\t\t\t\t\t\t\t\t         -LIT_GUY";
 }
 
 void movie_booking::pass_proctect()//to protect the password
@@ -676,6 +679,7 @@ int main()
 
 
 bye:
+     cout<<"its working WITH file handling \n";
      system("cls");
      cout<<"\n\n\n\n\t\t\t\t\t\t\t THANK YOU FOR USING OUR APPLICATION!!!!";
  return 0;
