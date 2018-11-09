@@ -93,7 +93,7 @@ void movie_booking::first()
         {
             (*this).pass_proctect();
         if(pass=="KASAW")
-        {
+        {   dir_customer++;
             (*this).manager();//the manager mode to set the number of seats available for booking
             pas_count=3;
         }
@@ -105,6 +105,7 @@ void movie_booking::first()
         }
 
     }
+
     }
 
     system("cls");
@@ -459,7 +460,7 @@ void movie_booking::ticket_print()
            cout<<"\t\t\t       "<<a<<" * 500"<<endl;
            if(b!=0)
            cout<<"\t\t\t      +"<<b<<" * 200"<<endl;
-           if(c!=0)
+           if(d!=0)
            cout<<"\t\t\t      +"<<d<<" * 100"<<endl;
        cout<<"GST 18% = "<<cost*0.18<<endl;
        cost=cost+cost*(0.18);
@@ -476,7 +477,7 @@ fin.open("movie_test2.csv");
     getline(fin,name[i],'\n');
    }
    getline(fin,name[i],',');
-   
+
          for(int j=0;j<sti;j++)
    {
     getline(fin,time,',');
